@@ -111,5 +111,9 @@ build/
 build-*/
 docgen_tmp/
 
+# Rust programming language
+target/
+**/*.rs.bk
+
 # Parser stuff
 parser/raylib_parser

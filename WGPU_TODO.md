@@ -3,7 +3,7 @@
 This document should be removed once we merge into `raylib`.
 
 ### Project Setup
-- [ ] Add the  `wgpu-native` source code to the `external` folder.
+- [x] Add the `wgpu-native` source code to the `external` folder.
 - [ ] Add CMake integration and logic to `CMake` to build `wgpu-native`.
 - [ ] Add the necessary build flags / preprocessor flags to distinguish the `wgpu` backend from the already-existing `rlgl` backend.
 - [ ] Add CI
@@ -18,6 +18,8 @@ This document should be removed once we merge into `raylib`.
 
 ### Unresolved / Gotchas
 #### Project Setup
+- [ ] Should we write a script that automates the bundling of `wgpu-native`?
+- [ ] `wgpu-native` uses git submodules for its dependencies. `raylib` doesn't. For now, we bundle a modified version of `wgpu-native` in `raylib`'s repository.
 - [ ] The `wgpu-native` library is huge (~250MB) Need to optimize for size when building the library.
 - [ ] Should we build the library from source? `wgpu-native` provides binary release on GitHub as well. Should we support both options?
 
