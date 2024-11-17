@@ -1,3 +1,6 @@
+<p align="center">🚧🚧🚧 This fork is an attempt to port <code>raylib</code>'s graphics backend to <code>wgpu</code>. 🚧🚧🚧</p>
+<br>
+
 <img align="left" style="width:260px" src="https://github.com/raysan5/raylib/blob/master/logo/raylib_logo_animation.gif" width="288px">
 
 **raylib is a simple and easy-to-use library to enjoy videogames programming.**
