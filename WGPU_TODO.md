@@ -4,13 +4,15 @@ This document should be removed once we merge into `raylib`.
 
 ### Project Setup
 - [x] Add the `wgpu-native` source code to the `external` folder.
-- [ ] Add CMake integration and logic to `CMake` to build `wgpu-native`.
-- [ ] Add the necessary build flags / preprocessor flags to distinguish the `wgpu` backend from the already-existing `rlgl` backend.
+- [x] Add CMake integration and logic to `CMake` to build `wgpu-native`.
+- [x] Add the necessary build flags / preprocessor flags to distinguish the `wgpu` backend from the already-existing `rlgl` backend.
 - [ ] Add CI
   - [ ] Write and test the GitHub workflows for the `wgpu` backend.
   - [ ] Make sure CI passes on all platforms, in all cases.
+- [ ] Review CMake scripts.
 
 ### Clearing the Background
+- [ ] Split the implementations.
 - [ ] Modify `CreateWindow` to create the required WGPU primitives.
 - [ ] Create a surface on all platforms using `GLFW`'s native functions.
 - [ ] Implement `BeginDrawing` `ClearBackground` and `EndDrawing`.

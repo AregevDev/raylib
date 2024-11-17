@@ -90,6 +90,13 @@ if (BUILD_SHARED_LIBS)
     set_property(TARGET raylib PROPERTY C_VISIBILITY_PRESET hidden)
 endif ()
 
+if (${GRAPHICS_BACKEND} MATCHES "WGPU")
+    add_dependencies(raylib wgpu-native)
+    target_include_directories(raylib PUBLIC ${WGPU_DIR}/ffi/)
+    target_include_directories(raylib PUBLIC ${WGPU_DIR}/ffi/webgpu-headers)
+    target_link_directories(raylib PUBLIC "${WGPU_TARGET_DIR}/${WGPU_TARGET}/${WGPU_LIB_TYPE}")
+endif ()
+
 target_link_libraries(raylib "${LIBS_PRIVATE}")
 
 # Sets some compile time definitions for the pre-processor
@@ -124,6 +131,7 @@ endif ()
 
 message(STATUS "Compiling with the flags:")
 message(STATUS "  PLATFORM=" ${PLATFORM_CPP})
+message(STATUS "  GRAPHICS_BACKEND=" ${GRAPHICS_BACKEND_CPP})
 message(STATUS "  GRAPHICS=" ${GRAPHICS})
 
 # Options if you want to create an installer using CPack

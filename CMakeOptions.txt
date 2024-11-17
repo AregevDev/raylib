@@ -3,8 +3,9 @@ include(CMakeDependentOption)
 include(EnumOption)
 
 enum_option(PLATFORM "Desktop;Web;Android;Raspberry Pi;DRM;SDL" "Platform to build for.")
+enum_option(GRAPHICS_BACKEND "rlgl;WGPU" "Graphics Backend to use.")
 
-enum_option(OPENGL_VERSION "OFF;4.3;3.3;2.1;1.1;ES 2.0;ES 3.0" "Force a specific OpenGL Version?")
+enum_option(OPENGL_VERSION "OFF;4.3;3.3;2.1;1.1;ES 2.0;ES 3.0" "Force a specific OpenGL Version for rlgl?")
 
 # Configuration options
 option(BUILD_EXAMPLES "Build the examples." ${RAYLIB_IS_MAIN})

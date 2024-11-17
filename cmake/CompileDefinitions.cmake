@@ -1,5 +1,6 @@
 # Adding compile definitions
 target_compile_definitions("raylib" PUBLIC "${PLATFORM_CPP}")
+target_compile_definitions("raylib" PUBLIC "${GRAPHICS_BACKEND_CPP}")
 target_compile_definitions("raylib" PUBLIC "${GRAPHICS}")
 
 function(define_if target variable)

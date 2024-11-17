@@ -553,6 +553,10 @@ const char *TextFormat(const char *text, ...);              // Formatting of tex
     // i.e software rendering backend or console backend!
 #endif
 
+#if defined(GRAPHICS_BACKEND_WGPU)
+#include <wgpu.h>
+#endif
+
 //----------------------------------------------------------------------------------
 // Module Functions Definition: Window and Graphics Device
 //----------------------------------------------------------------------------------
@@ -623,6 +627,13 @@ void InitWindow(int width, int height, const char *title)
     TRACELOG(LOG_INFO, "Platform backend: CUSTOM");
 #endif
 
+#if defined(GRAPHICS_BACKEND_RLGL)
+    TRACELOG(LOG_INFO, "Graphics backend: rlgl");
+#elif defined(GRAPHICS_BACKEND_WGPU)
+    TRACELOG(LOG_INFO, "Graphics backend: WGPU (Version: %s)", wgpuGetVersion());
+#else
+    TRACELOG(LOG_INFO, "Graphics backend: Unknown");
+#endif
     TRACELOG(LOG_INFO, "Supported raylib modules:");
     TRACELOG(LOG_INFO, "    > rcore:..... loaded (mandatory)");
     TRACELOG(LOG_INFO, "    > rlgl:...... loaded (mandatory)");
