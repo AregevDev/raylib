@@ -67,18 +67,11 @@ elseif (${GRAPHICS_BACKEND} MATCHES "WGPU")
         message(FATAL_ERROR "Unsupported WGPU architecture!")
     endif ()
 
-    if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-        set(WGPU_LIB_TYPE debug)
-        set(WGPU_BUILD_TYPE "")
-    else ()
-        set(WGPU_LIB_TYPE release)
-        set(WGPU_BUILD_TYPE "--release")
-    endif ()
-
+    # Build a release version of wgpu-native, optimized for size.
     set(WGPU_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/wgpu-native)
     set(WGPU_TARGET_DIR ${CMAKE_CURRENT_BINARY_DIR}/external/wgpu-native-target)
     set(WGPU_TARGET "${WGPU_ARCH}-${WGPU_OS_ABI}")
-    set(WGPU_BUILD_COMMAND "build" "--target-dir" ${WGPU_TARGET_DIR} "--target" "${WGPU_TARGET}" "${WGPU_BUILD_TYPE}")
+    set(WGPU_BUILD_COMMAND "rustc" "--release" "--target-dir" ${WGPU_TARGET_DIR} "--target" "${WGPU_TARGET}" "--" "-Copt-level=z")
 
     add_custom_target(wgpu-native COMMAND ${CARGO_DIR} ${WGPU_BUILD_COMMAND} WORKING_DIRECTORY ${WGPU_DIR} COMMENT "Building wgpu-native")
 endif ()

@@ -94,7 +94,7 @@ if (${GRAPHICS_BACKEND} MATCHES "WGPU")
     add_dependencies(raylib wgpu-native)
     target_include_directories(raylib PUBLIC ${WGPU_DIR}/ffi/)
     target_include_directories(raylib PUBLIC ${WGPU_DIR}/ffi/webgpu-headers)
-    target_link_directories(raylib PUBLIC "${WGPU_TARGET_DIR}/${WGPU_TARGET}/${WGPU_LIB_TYPE}")
+    target_link_directories(raylib PUBLIC "${WGPU_TARGET_DIR}/${WGPU_TARGET}/release")
 endif ()
 
 target_link_libraries(raylib "${LIBS_PRIVATE}")

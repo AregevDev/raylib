@@ -22,7 +22,8 @@ This document should be removed once we merge into `raylib`.
 #### Project Setup
 - [ ] Should we write a script that automates the bundling of `wgpu-native`?
 - [ ] `wgpu-native` uses git submodules for its dependencies. `raylib` doesn't. For now, we bundle a modified version of `wgpu-native` in `raylib`'s repository.
-- [ ] The `wgpu-native` library is huge (~250MB) Need to optimize for size when building the library.
+- [x] `wgpu-native` is huge (~250MB) Need to optimize for size when building the library. <u>Was able to shrink it down to ~50MB.</u>
+- [ ] Consider shipping the library separately from `raylib`.
 - [ ] Should we build the library from source? `wgpu-native` provides binary release on GitHub as well. Should we support both options?
 
 #### API
